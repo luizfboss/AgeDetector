@@ -1,50 +1,50 @@
-function verificar() {
+function verify() {
     var data = new Date()
-    var ano = data.getFullYear()
-    var fano = window.document.getElementById('txtano')
-    var fano = Number(fano.value)
+    var year = data.getFullYear()
+    var fyear = window.document.getElementById('txtano')
+    var fyear = Number(fyear.value)
     var res = window.document.getElementById('result')
-    var soma = ano - fano
-    if (fano == 0 || soma < 0){
-        window.alert(`[Erro!]. A data de nascimento ${fano} foi invalida. Escreva uma idade valida e tente novamente.`)
+    var sum = year - fyear
+    if (fyear == 0 || sum < 0){
+        window.alert(`[Error!]. The date of birth ${fyear} is invalid. Please type a valid year and try again.`)
     } else {
         var fsex = document.getElementsByName('radsex')
-        var genero = ''
+        var gender = ''
         var img = document.createElement('img')
         img.setAttribute('id', 'foto')
         if (fsex[0].checked) {
-            genero = 'Homem'
-            if (soma >= 0 && soma < 10) {
-                //Crianca
+            gender = 'Men'
+            if (sum >= 0 && sum < 10) {
+                //Child
                 img.setAttribute('src', 'Imagens/kid-boy.png')
-            } else if (soma < 21) {
-                //Jovem
+            } else if (sum < 21) {
+                //Teen
                 img.setAttribute('src', 'Imagens/teen-boy.png')
-            } else if (soma < 50) {
-                //Adulto
+            } else if (sum < 50) {
+                //Adult
                 img.setAttribute('src', 'Imagens/men.png')
             } else {
-                //Idoso
+                //Elder
                 img.setAttribute('src', 'Imagens/grandpa.png')
             }
         } else if (fsex[1].checked) {
-            genero = 'Mulher'
-            if (soma >= 0 && soma < 10) {
-                //Crianca
+            gender = 'Woman'
+            if (sum >= 0 && sum < 10) {
+                //Child
                 img.setAttribute('src', 'Imagens/kid-girl.png')
-            } else if (soma < 21) {
-                //Jovem
+            } else if (sum < 21) {
+                //Teen  
                 img.setAttribute('src', 'Imagens/teen-girl.png')
-            } else if (soma < 50) {
-                //Adulto
+            } else if (sum < 50) {
+                //Adult
                 img.setAttribute('src', 'Imagens/Woman.png')
             } else {
-                //Idoso
+                //Elder
                 img.setAttribute('src', 'Imagens/grandma.png')
             }
         }
         res.style.textAlign = 'center'
-        res.innerHTML = `Detectamos ${genero} com ${soma} anos`
+        res.innerHTML = `We detected a ${sum} year-old ${gender}`
         res.appendChild(img)
     }
 }
